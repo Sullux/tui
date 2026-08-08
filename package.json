@@ -1,0 +1,13 @@
+{
+  "name": "@sullux/tui-yaml",
+  "version": "1.0.0",
+  "description": "A declarative, component-driven UI framework for terminal grids using YAML and JavaScript",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
