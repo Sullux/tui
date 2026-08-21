@@ -1,8 +1,8 @@
-# @sullux/coms-tui-yaml
+# @sullux/tui
 
 An enterprise-grade, declarative, component-driven User Interface framework designed from the ground up for terminal grids.
 
-`@sullux/coms-tui-yaml` solves the complexity of terminal UI development by cleanly separating **markup structure and layout styling (expressed in logic-free YAML)** from **runtime behavior and event dispatching (expressed in pure, functional JavaScript)**.
+`@sullux/tui` solves the complexity of terminal UI development by cleanly separating **markup structure and layout styling (expressed in logic-free YAML)** from **runtime behavior and event dispatching (expressed in pure, functional JavaScript)**.
 
 ---
 
@@ -44,7 +44,7 @@ inner:
 
 ```javascript
 // app.js
-const { Tui } = require('@sullux/coms-tui-yaml')
+const { Tui } = require('@sullux/tui')
 
 const app = Tui({ view: './view.yaml' })
 app.start()

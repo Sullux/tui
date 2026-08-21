@@ -1,10 +1,10 @@
-# @sullux/coms-tui-yaml Documentation
+# @sullux/tui Documentation
 
-Welcome to the official documentation for `@sullux/coms-tui-yaml`, a declarative, component-driven User Interface framework designed specifically for terminal environments.
+Welcome to the official documentation for `@sullux/tui`, a declarative, component-driven User Interface framework designed specifically for terminal environments.
 
 ## Overview
 
-`@sullux/coms-tui-yaml` cleanly separates **markup structure and layout styling (expressed in logic-free YAML)** from **runtime behavior and event dispatching (expressed in pure, functional JavaScript)**.
+`@sullux/tui` cleanly separates **markup structure and layout styling (expressed in logic-free YAML)** from **runtime behavior and event dispatching (expressed in pure, functional JavaScript)**.
 
 ## Navigation
 

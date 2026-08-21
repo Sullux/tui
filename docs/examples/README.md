@@ -1,6 +1,6 @@
 # Examples
 
-Practical component examples and patterns for `@sullux/coms-tui-yaml`.
+Practical component examples and patterns for `@sullux/tui`.
 
 ## Examples List
 

@@ -1,6 +1,6 @@
 # Built-In Control Reference
 
-`@sullux/coms-tui-yaml` includes a suite of core controls that satisfy the functional interface contract `{ onMeasure, onLayout, onRender }`.
+`@sullux/tui` includes a suite of core controls that satisfy the functional interface contract `{ onMeasure, onLayout, onRender }`.
 
 ## Layout Controls
 

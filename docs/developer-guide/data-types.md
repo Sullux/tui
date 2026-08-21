@@ -1,6 +1,6 @@
 # Data Types
 
-The `@sullux/coms-tui-yaml` layout engine relies on strict functional type normalization factories exported from `lib/types.js` (and available on `ctx`).
+The `@sullux/tui` layout engine relies on strict functional type normalization factories exported from `lib/types.js` (and available on `ctx`).
 
 ---
 

@@ -12,7 +12,7 @@ Building complex User Interfaces in terminal emulators historically required ver
 
 ## The Declarative Solution
 
-`@sullux/coms-tui-yaml` leverages a pure functional architecture:
+`@sullux/tui` leverages a pure functional architecture:
 
 * **The Discrete Box Model:** Every element in the YAML markup tree compiles into a localized virtual bounding box. Widths, heights, padding, and margins are solved deterministically using character cell dimensions.
 * **Double-Buffered Renderer:** Rendering occurs to an in-memory double-buffered character grid. Differences between frames are computed and flushed in a single atomic terminal write-stream, eliminating flicker and scrollback pollution.

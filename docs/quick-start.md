@@ -5,9 +5,9 @@
 Add the library into your workspace using `yarn` or `npm`:
 
 ```bash
-yarn add @sullux/coms-tui-yaml
+yarn add @sullux/tui
 # or
-npm install @sullux/coms-tui-yaml
+npm install @sullux/tui
 ```
 
 ---
@@ -66,7 +66,7 @@ exports.getDynamicContent = () => {
 Utilize the turnkey `Tui` factory for double-buffered rendering, resize tracking, Alternate Buffer isolation, and keyboard capture:
 
 ```javascript
-const { Tui } = require('@sullux/coms-tui-yaml')
+const { Tui } = require('@sullux/tui')
 
 // 1. Initialize the App engine with the view
 const app = Tui({

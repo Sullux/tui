@@ -1,6 +1,6 @@
 # Markup Reference
 
-YAML markup files in `@sullux/coms-tui-yaml` are strictly logic-free declarations. All dynamic data, templates, and styles are resolved via scoping, imports, and sigils (`@`, `:`, `$`).
+YAML markup files in `@sullux/tui` are strictly logic-free declarations. All dynamic data, templates, and styles are resolved via scoping, imports, and sigils (`@`, `:`, `$`).
 
 ---
 

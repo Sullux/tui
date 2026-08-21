@@ -1,6 +1,6 @@
 # Keyboard Engine
 
-Interactive controls require reliable, compare-safe keyboard binding. `@sullux/coms-tui-yaml` provides a dedicated translation and routing layer.
+Interactive controls require reliable, compare-safe keyboard binding. `@sullux/tui` provides a dedicated translation and routing layer.
 
 ---
 
@@ -30,7 +30,7 @@ Raw terminal escape sequences are translated into normalized key payloads. The `
 The `KeyHandler` factory compiles a dictionary of key patterns into a stateful routing function. It returns a standard callback `(ctx, event)` and supports nesting for modes or Vim-like state maps:
 
 ```javascript
-const { KeyHandler } = require('@sullux/coms-tui-yaml')
+const { KeyHandler } = require('@sullux/tui')
 
 const handleNormalMode = KeyHandler({
   i: (ctx) => {

@@ -1,11 +1,40 @@
 {
-  "name": "@sullux/tui-yaml",
+  "name": "@sullux/tui",
   "version": "1.0.0",
   "description": "A declarative, component-driven UI framework for terminal grids using YAML and JavaScript",
   "main": "index.js",
-  "private": true,
   "scripts": {
+    "build": "node build.js",
+    "deploy": "./deploy.sh",
     "test": "node --test test/**/*.test.js"
+  },
+  "author": "Charles Sullivan <charles@sullux.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sullux/tui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sullux/tui/issues"
+  },
+  "homepage": "https://github.com/Sullux/tui#readme",
+  "keywords": [
+    "tui",
+    "terminal",
+    "cli",
+    "ui",
+    "yaml",
+    "declarative",
+    "grid",
+    "components",
+    "console"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

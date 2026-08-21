@@ -1,6 +1,6 @@
 # Event Lifecycle & Handlers
 
-`@sullux/coms-tui-yaml` features a state-reactive event routing engine. Event handlers are bound in YAML markup using the `@` protocol (e.g., `onKey: '@controller.js:handleKey'`) and receive `(ctx, payload)` during execution.
+`@sullux/tui` features a state-reactive event routing engine. Event handlers are bound in YAML markup using the `@` protocol (e.g., `onKey: '@controller.js:handleKey'`) and receive `(ctx, payload)` during execution.
 
 ---
 

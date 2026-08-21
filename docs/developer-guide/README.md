@@ -1,6 +1,6 @@
 # Developer Guide
 
-The Developer Guide provides an in-depth reference for building applications with `@sullux/coms-tui-yaml`.
+The Developer Guide provides an in-depth reference for building applications with `@sullux/tui`.
 
 ## Table of Contents
 
