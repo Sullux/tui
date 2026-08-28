@@ -14,5 +14,7 @@
 
 * **[text (Formatted Text)](text.md)** — Word-wrapped formatted text strings with alignment and ANSI styles.
 * **[rich (Inline Span & Flow Text)](rich.md)** — Inline styled text spans and non-text elements flowing across wrapping lines.
+* **[input (Text Input)](input.md)** — Interactive text entry with keyboard navigation, editing affordances, and customizable carets.
+* **[caret (Caret / Insertion Point)](caret.md)** — Customizable insertion point glyphs, color inversion, and multi-cell dimensions.
 * **[border (Decorative Box Outlines)](border.md)** — Rounded or square box outlines with automatic padding inset geometry.
 * **[image (Kitty & Sixel Graphics)](image.md)** — Binary image rendering and SVG vector-to-raster compilation.
