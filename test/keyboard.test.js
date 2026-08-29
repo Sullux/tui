@@ -1,6 +1,48 @@
 const test = require('node:test')
 const assert = require('node:assert')
-const { KEY, keyToChar, parseKeyPress, getStrokeName, KeyHandler } = require('../lib/keyboard')
+const { KEY, keyToChar, parseKeyPress, parseInputChunk, getStrokeName, KeyHandler } = require('../lib/keyboard')
+
+test('Keyboard - parseInputChunk parses bracketed paste, CSI-u, and control keys', () => {
+  // 1. Bracketed paste
+  const pasteEvents = parseInputChunk('\x1b[200~const x = 1\nconst y = 2\x1b[201~')
+  assert.strictEqual(pasteEvents.length, 1)
+  assert.strictEqual(pasteEvents[0].key, 'paste')
+  assert.strictEqual(pasteEvents[0].text, 'const x = 1\nconst y = 2')
+
+  // 2. Chunked bracketed paste across separate buffers
+  const state = { pasteBuffer: null }
+  const chunk1 = parseInputChunk('\x1b[200~chunk one\n', state)
+  assert.strictEqual(chunk1.length, 0)
+  assert.strictEqual(state.pasteBuffer, 'chunk one\n')
+
+  const chunk2 = parseInputChunk('chunk two\x1b[201~', state)
+  assert.strictEqual(chunk2.length, 1)
+  assert.strictEqual(chunk2[0].key, 'paste')
+  assert.strictEqual(chunk2[0].text, 'chunk one\nchunk two')
+  assert.strictEqual(state.pasteBuffer, null)
+
+  // 3. Kitty / CSI-u Shift+Enter (\x1b[13;2u) and modifyOtherKeys (\x1b[27;2;13~)
+  const shiftEnterCsi = parseInputChunk('\x1b[13;2u')
+  assert.strictEqual(shiftEnterCsi[0].key, 'enter')
+  assert.strictEqual(shiftEnterCsi[0].shift, true)
+
+  const shiftEnterMok = parseInputChunk('\x1b[27;2;13~')
+  assert.strictEqual(shiftEnterMok[0].key, 'enter')
+  assert.strictEqual(shiftEnterMok[0].shift, true)
+
+  const ss3Enter = parseInputChunk('\x1bOM')
+  assert.strictEqual(ss3Enter[0].key, 'enter')
+  assert.strictEqual(ss3Enter[0].shift, true)
+
+  // 4. Ctrl+C and Ctrl+Q control bytes
+  const ctrlC = parseInputChunk('\x03')
+  assert.strictEqual(ctrlC[0].key, 'c')
+  assert.strictEqual(ctrlC[0].ctrl, true)
+
+  const ctrlQ = parseInputChunk('\x11')
+  assert.strictEqual(ctrlQ[0].key, 'q')
+  assert.strictEqual(ctrlQ[0].ctrl, true)
+})
 
 test('Keyboard - parseKeyPress and keyToChar translation helpers', () => {
   // 1. Regular character

@@ -5,6 +5,7 @@ const { ControlCompiler, Control } = require('./lib/control')
 const Tui = require('./lib/tui')
 const types = require('./lib/types')
 const { KEY, keyToChar, parseKeyPress, KeyHandler } = require('./lib/keyboard')
+const { handleInputKey, wordBoundaryLeft, wordBoundaryRight } = require('./lib/input-utils')
 
 const paintNode = (grid, node) => {
   if (!node || node.isVisible === false) return
@@ -27,4 +28,7 @@ module.exports = {
   keyToChar,
   parseKeyPress,
   KeyHandler,
+  handleInputKey,
+  wordBoundaryLeft,
+  wordBoundaryRight,
 }

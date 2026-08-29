@@ -1,11 +1,12 @@
 {
   "name": "@sullux/tui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A declarative, component-driven UI framework for terminal grids using YAML and JavaScript",
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
     "deploy": "./deploy.sh",
+    "example:chat": "node examples/chat/app.js",
     "test": "node --test test/**/*.test.js"
   },
   "author": "Charles Sullivan <charles@sullux.com>",

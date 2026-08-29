@@ -19,6 +19,8 @@
   * [wrap (Wrap Panel Layout)](built-in-controls/wrap.md)
   * [text (Formatted Text)](built-in-controls/text.md)
   * [rich (Inline Span & Flow Text)](built-in-controls/rich.md)
+  * [input (Text Input)](built-in-controls/input.md)
+  * [caret (Caret / Insertion Point)](built-in-controls/caret.md)
   * [border (Decorative Box Outlines)](built-in-controls/border.md)
   * [image (Kitty & Sixel Graphics)](built-in-controls/image.md)
 * [Examples](examples/README.md)

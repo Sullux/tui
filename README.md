@@ -22,7 +22,7 @@ Full documentation is available in the **[docs/](docs/README.md)** directory:
   * [Markup Reference](docs/developer-guide/markup-reference.md)
 * **[Built-In Control Reference](docs/built-in-controls/README.md)**
   * [`layout`](docs/built-in-controls/layout.md), [`canvas`](docs/built-in-controls/canvas.md), [`scroll`](docs/built-in-controls/scroll.md), [`stack`](docs/built-in-controls/stack.md), [`wrap`](docs/built-in-controls/wrap.md)
-  * [`text`](docs/built-in-controls/text.md), [`rich`](docs/built-in-controls/rich.md), [`border`](docs/built-in-controls/border.md), [`image`](docs/built-in-controls/image.md)
+  * [`text`](docs/built-in-controls/text.md), [`rich`](docs/built-in-controls/rich.md), [`input`](docs/built-in-controls/input.md), [`caret`](docs/built-in-controls/caret.md), [`border`](docs/built-in-controls/border.md), [`image`](docs/built-in-controls/image.md)
 * **[Examples](docs/examples/README.md)**
   * [Animated Spinner](docs/examples/animated-spinner.md)
 * **[License](docs/license.md)** — MIT License details.
