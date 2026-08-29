@@ -1,0 +1,102 @@
+type: layout
+direction: vertical
+width: fill
+height: fill
+bg: '#1a1b26'
+onKeyPreview: '@handlers:onGlobalKey'
+inner:
+  # Header Bar
+  - type: border
+    borderStyle: single
+    borderFg: '#3b4261'
+    height: 3
+    inner:
+      - type: layout
+        direction: horizontal
+        width: fill
+        inner:
+          - type: text
+            text: ' TUI EXAMPLE APP: CHAT '
+            bold: true
+            fg: '#7aa2f7'
+          - type: text
+            text: '● Online'
+            fg: '#9ece6a'
+            margin: { left: 2 }
+          - type: text
+            text: '@handlers:getActiveChannelTitle'
+            bold: true
+            fg: '#bb9af7'
+            margin: { left: 4 }
+
+  # Main Content Split (Sidebar + Messages)
+  - type: layout
+    direction: horizontal
+    height: fill
+    inner:
+      # Left Sidebar (Channels)
+      - type: border
+        borderStyle: single
+        borderFg: '#3b4261'
+        width: 22
+        height: fill
+        inner:
+          - type: layout
+            direction: vertical
+            inner:
+              - type: text
+                text: 'CHANNELS'
+                bold: true
+                fg: '#565f89'
+                margin: { bottom: 1 }
+              - type: layout
+                direction: vertical
+                inner: '@handlers:getChannelNodes'
+
+      # Right Message View & Input Area
+      - type: layout
+        direction: vertical
+        width: fill
+        height: fill
+        margin: { left: 1 }
+        inner:
+          # Scrollable Message Stream
+          - type: border
+            borderStyle: single
+            borderFg: '#3b4261'
+            height: fill
+            inner:
+              - type: scroll
+                direction: vertical
+                height: fill
+                inner:
+                  - type: layout
+                    direction: vertical
+                    inner: '@handlers:getMessageNodes'
+
+          # Input Box (Auto-growing with wrap: true)
+          - type: border
+            borderStyle: rounded
+            borderFg: '#7aa2f7'
+            height: content
+            inner:
+              - type: input
+                id: chatInput
+                wrap: true
+                maxHeight: 6
+                placeholder: 'Type a message... (Shift+Enter for newline, Enter to send)'
+                placeholderStyle:
+                  fg: '#565f89'
+                  italic: true
+                caret:
+                  mode: invert
+                onSubmit: '@handlers:onSubmitMessage'
+
+  # Status / Shortcuts Footer
+  - type: layout
+    direction: horizontal
+    height: 1
+    inner:
+      - type: text
+        text: ' Tab: Channels | Shift+Enter: Newline | Ctrl+C: Clear Input | Ctrl+Q: Quit'
+        fg: '#565f89'

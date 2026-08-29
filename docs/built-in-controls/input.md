@@ -29,7 +29,10 @@ onSubmit: '@handlers.js:onSearchSubmit'
 * **`placeholder`**: `string` — Displayed when `value` is empty.
 * **`placeholderStyle`**: `object` — ANSI styling for the placeholder text (`fg`, `bg`, `italic`, `bold`).
 * **`multiline`**: `boolean` — Single-line text field (`false`, default) or multi-line text area (`true`).
-* **`wrap`**: `boolean` — Enables word wrapping in multiline mode.
+* **`wrap`**: `boolean` — Enables word wrapping and dynamic auto-growing height with `height: content`.
+* **`maxHeight`**: `number` — Maximum height cap when auto-growing with `height: content`.
+* **`submitMode`**: `string` — `'enter'` (default: `Enter` submits, `Shift+Enter`/`Alt+Enter` inserts newline) or `'ctrl+enter'` (`Enter` inserts newline, `Ctrl+Enter` submits).
+* **`clearOnSubmit`**: `boolean` — Clears input content automatically upon submission (`true`, default).
 * **`mask`**: `string` — Character mask for passwords or sensitive input (e.g. `'*'`).
 * **`maxLength`**: `number` — Maximum allowed string length.
 * **`readOnly`** / **`disabled`**: `boolean` — Disables user keyboard input.
@@ -53,7 +56,11 @@ onSubmit: '@handlers.js:onSearchSubmit'
 | **`ctrl+delete` / `alt+d`** | Delete word forward |
 | **`ctrl+u`** | Delete to start of line |
 | **`ctrl+k`** | Delete to end of line |
-| **`enter`** | Multiline: insert `\n`; Single-line: trigger `onSubmit` |
+| **`up` / `down`** | Move cursor vertically across lines in multi-line / wrapped text |
+| **`shift+enter` / `alt+enter`** | Insert newline (`\n`) without submitting |
+| **`ctrl+c`** | Clear input value and reset cursor |
+| **`enter`** | Multiline / editor mode: insert `\n`; Chat / standard mode: trigger `onSubmit` |
+| **`paste`** | Insert pasted text / multiline content preserving newlines without premature submit |
 
 ---
 

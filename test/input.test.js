@@ -50,6 +50,10 @@ test('input-utils - findLineCol resolves 2D coordinates in multiline text', () =
   assert.deepStrictEqual(findLineCol(lines, 5), { row: 0, col: 5 })
   assert.deepStrictEqual(findLineCol(lines, 11), { row: 1, col: 0 })
   assert.deepStrictEqual(findLineCol(lines, 17), { row: 1, col: 6 })
+
+  // Trailing newline locates cursor on empty row 1
+  const trailingLines = ['Hello', '']
+  assert.deepStrictEqual(findLineCol(trailingLines, 6), { row: 1, col: 0 })
 })
 
 test('input-utils - handleInputKey handles typing, cursor movements, and deletions', () => {
@@ -91,6 +95,37 @@ test('input-utils - handleInputKey handles typing, cursor movements, and deletio
   // End key moves to end
   handleInputKey(node, { key: 'end' }, null)
   assert.strictEqual(node.cursor, 4)
+
+  // Shift+Enter inserts newline
+  handleInputKey(node, { key: 'enter', shift: true }, null)
+  assert.strictEqual(node.value, 'ell!\n')
+  assert.strictEqual(node.cursor, 5)
+
+  // Ctrl+C clears input
+  handleInputKey(node, { key: 'c', ctrl: true }, null)
+  assert.strictEqual(node.value, '')
+  assert.strictEqual(node.cursor, 0)
+})
+
+test('input-utils - multi-line Up/Down vertical cursor navigation and pasting', () => {
+  const node = {
+    value: 'line 1\nline 2 longer\nline 3',
+    cursor: 0,
+    multiline: true,
+  }
+
+  // Paste multiline chunk
+  handleInputKey(node, { key: 'paste', text: 'top\n' }, null)
+  assert.ok(node.value.startsWith('top\nline 1'))
+
+  // Up/Down navigation
+  node.value = 'line one\nline two\nline three'
+  node.cursor = 2 // on 'n' in 'line one' (col 2)
+  handleInputKey(node, { key: 'down' }, null)
+  assert.strictEqual(node.cursor, 11) // row 1, col 2 ('n' in 'line two')
+
+  handleInputKey(node, { key: 'up' }, null)
+  assert.strictEqual(node.cursor, 2)
 })
 
 test('Caret Control - renders inverted character or custom caret shapes', () => {
@@ -221,7 +256,7 @@ test('Input Control - Tui application integration with focus and live typing', a
   stdin.emit('keypress', '\r', { name: 'enter' })
 
   assert.strictEqual(submittedText, 'Hi')
-  assert.strictEqual(app.ctx.elementById('msgInput').value, 'Hi')
+  assert.strictEqual(app.ctx.elementById('msgInput').value, '')
 
   app.stop()
 })
