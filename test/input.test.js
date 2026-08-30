@@ -185,16 +185,18 @@ test('Input Control - single-line rendering, placeholder, and auto-scrolling', (
   const unfocusedInput = compiler.compileNode({
     type: 'input',
     value: 'test',
-    cursor: 4,
+    cursor: 2,
     width: 10,
     height: 1,
     hasFocus: false,
-    unfocusedCaret: { char: '█', fg: '#565f89' },
+    unfocusedCaret: { bg: '#414868', fg: '#c0caf5' },
   })
   solveLayout(unfocusedInput, { x: 0, y: 0, width: 10, height: 1 })
   const grid3 = createMockGrid(10, 1, ' ')
   paintNode(grid3, unfocusedInput)
-  assert.strictEqual(grid3[0][4].char, '█')
+  // Cursor at index 2 ('s') should preserve the character 's' while applying the dark gray background
+  assert.strictEqual(grid3[0][2].char, 's')
+  assert.ok(grid3[0][2].style.includes('48;2;65;72;104'))
 })
 
 test('Input Control - formatting callback renders styled spans', () => {

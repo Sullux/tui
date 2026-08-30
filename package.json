@@ -1,6 +1,6 @@
 {
   "name": "@sullux/tui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A declarative, component-driven UI framework for terminal grids using YAML and JavaScript",
   "main": "index.js",
   "scripts": {
