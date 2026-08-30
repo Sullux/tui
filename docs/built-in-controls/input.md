@@ -36,7 +36,8 @@ onSubmit: '@handlers.js:onSearchSubmit'
 * **`mask`**: `string` — Character mask for passwords or sensitive input (e.g. `'*'`).
 * **`maxLength`**: `number` — Maximum allowed string length.
 * **`readOnly`** / **`disabled`**: `boolean` — Disables user keyboard input.
-* **`caret`**: `string` | `boolean` | `object` — Caret definition or shorthand (e.g. `'█'`, `'│'`, or `{ type: 'caret', mode: 'invert' }`).
+* **`caret`**: `string` | `boolean` | `object` — Caret definition or shorthand when focused (e.g. `'█'`, `'│'`, or `{ type: 'caret', mode: 'invert' }`).
+* **`unfocusedCaret`**: `string` | `boolean` | `object` — Optional standby caret definition rendered when the input is not focused (e.g. `{ char: '█', fg: '#565f89' }`).
 * **`format`** / **`onFormat`**: `(text, cursor, ctx) => Array<{ text, fg, bg, bold, ... }>` — Hook to transform raw text into custom styled spans.
 
 ---

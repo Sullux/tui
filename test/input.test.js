@@ -180,6 +180,21 @@ test('Input Control - single-line rendering, placeholder, and auto-scrolling', (
   assert.ok(longInput.scrollX > 0)
   const lineContent = grid2[0].map(c => c.char).join('')
   assert.ok(lineContent.includes('ABCDEF'))
+
+  // 3. Unfocused Caret rendering
+  const unfocusedInput = compiler.compileNode({
+    type: 'input',
+    value: 'test',
+    cursor: 4,
+    width: 10,
+    height: 1,
+    hasFocus: false,
+    unfocusedCaret: { char: '█', fg: '#565f89' },
+  })
+  solveLayout(unfocusedInput, { x: 0, y: 0, width: 10, height: 1 })
+  const grid3 = createMockGrid(10, 1, ' ')
+  paintNode(grid3, unfocusedInput)
+  assert.strictEqual(grid3[0][4].char, '█')
 })
 
 test('Input Control - formatting callback renders styled spans', () => {
